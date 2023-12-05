@@ -29,6 +29,9 @@
 - スマホで撮れた綺麗な写真や、たまたま撮れた面白い写真などを投稿する時。
 - 他の人のスマホでの撮影方法を知りたい時。
 
+## 実装機能リスト
+https://docs.google.com/spreadsheets/d/1aEiiMhv7vJgkYaoAroUsAjjQImfHdU98o61hrTJKBPU/edit?usp=sharing
+
 ## 設計書
 後ほど作成予定です。
 
@@ -41,6 +44,3 @@
 
 ## 使用素材
 制作時に使用次第、追記します。
-
-## 実装機能リスト
-https://docs.google.com/spreadsheets/d/1aEiiMhv7vJgkYaoAroUsAjjQImfHdU98o61hrTJKBPU/edit?usp=sharing
