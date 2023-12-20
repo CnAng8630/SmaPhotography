@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SmaPhotography</title>
+    <title>スマフォトグラフィー</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -67,6 +67,8 @@
     </header>
 
     <main>
+      <%= notice %>
+      <%= alert %>
       <%= yield %>
     </main>
   </body>
