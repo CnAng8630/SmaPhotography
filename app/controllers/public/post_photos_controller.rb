@@ -22,6 +22,13 @@ class Public::PostPhotosController < ApplicationController
     @post_photo = PostPhoto.find(params[:id])
   end
 
+  def destroy
+    post_photo = PostPhoto.find(params[:id])
+    post_photo.destroy
+    flash[:notice] = "投稿を削除しました。"
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def post_photo_params

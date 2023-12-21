@@ -1,1 +1,13 @@
 <h2>投稿詳細</h2>
+
+<%= image_tag @post_photo.get_profile_image %>
+<%= link_to user_path(@post_photo.user.id)
+<%= @post_photo.user.name %>
+<%= @post_photo.type_name %>
+<%= @post_photo.introduction %>
+
+<% if @post_photo.user_id == current_user.id %>
+  <%= link_to post_photo_path(@post_photo.id), method: :delete, "data-confirm" => "削除しますか？" do %>
+   削除
+  <% end %>
+<% end %>

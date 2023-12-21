@@ -1,1 +1,9 @@
 <h2>全投稿一覧</h2>
+
+<% @post_photos.each do |post_photo| %>
+  <%= link_to post_photo_path(post_photo.id) do %>
+    <%= image_tag post_photo.get_photo_image(200,200) %>
+  <% end %>
+<% end %>
+
+<%= paginate @post_photos %>
