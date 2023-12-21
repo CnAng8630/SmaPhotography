@@ -33,6 +33,11 @@
           <% end %>
         </li>
         <li>
+          <%= link_to users_path do %>
+            ユーザー一覧
+          <% end %>
+        </li>
+        <li>
           <%= link_to user_path(current_user.id) do %>
             マイページ
           <% end %>
