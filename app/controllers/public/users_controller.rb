@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_photos = PostPhoto.all
+    @post_photos = @user.post_photos
   end
 
   def edit

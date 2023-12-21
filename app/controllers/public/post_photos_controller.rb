@@ -5,6 +5,7 @@ class Public::PostPhotosController < ApplicationController
 
   def create
     @post_photo = PostPhoto.new(post_photo_params)
+    @post_photo.user_id = current_user.id
     if @post_photo.save
       flash[:notice] = "投稿しました。"
       redirect_to post_photo_path(@post_photo.id)

@@ -11,8 +11,9 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true, length: {maximum: 20}
   validates :email, presence: true
+  validates :introduction, length: {maximum: 50}
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -1,11 +1,20 @@
 <h2>写真投稿</h2>
 
+<% if @post_photo.errors.any? %>
+  <%= @post_photo.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post_photo.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @post_photo do |f| %>
   <label for="inputImage">写真</label>
   <%= f.file_field :photo_image, accept: "image/*" %>
 
-  <label for="inputModelName">機種名</label>
-  <%= f.text_field :type_name, id:"inputModelName", placeholder:"iPhone14" %>
+  <label for="inputTypeName">機種名</label>
+  <%= f.text_field :type_name, id:"inputTypeName", placeholder:"iPhone14" %>
 
   <label for="inputIntroduction">写真について</label>
   <%= f.text_area :introduction, id:"inputIntroduction", placeholder:"写真についての説明を記入してください。" %>

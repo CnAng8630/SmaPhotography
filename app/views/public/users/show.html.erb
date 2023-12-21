@@ -7,3 +7,9 @@
    編集
   <% end %>
 <% end %>
+
+<% @post_photos.each do |post_photo| %>
+  <%= link_to post_photo_path(post_photo.id) do %>
+    <%= image_tag post_photo.get_photo_image(200,200) %>
+  <% end %>
+<% end %>
