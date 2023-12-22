@@ -1,4 +1,6 @@
 class Public::PostPhotosController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def new
     @post_photo = PostPhoto.new
   end

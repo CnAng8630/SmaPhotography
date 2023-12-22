@@ -1,1 +1,25 @@
-<h1>Topページ</h1>
+<h1>Welcome to SmaPhotography!</h1>
+
+スマフォトグラフィーへようこそ！<br>
+こちらは、スマホで撮影した写真を<br>
+投稿・共有できるSNSです。<br>
+<br>
+<% if user_signed_in? %>
+<% else %>
+  投稿するには、ユーザー登録が必要です。<br>
+  <%= link_to new_user_registration_path do %>
+    新規登録
+  <% end %>
+  <%= link_to new_user_session_path do %>
+    ログイン
+  <% end %>
+<% end %>
+
+<h2>最新の投稿</h2>
+<% @post_photos.each do |post_photo| %>
+  <%= link_to post_photo_path(post_photo.id) do %>
+    <%= image_tag post_photo.get_photo_image(200,200) %>
+    <%= post_photo.user.name %>
+    <%= post_photo.type_name %>
+  <% end %>
+<% end %>

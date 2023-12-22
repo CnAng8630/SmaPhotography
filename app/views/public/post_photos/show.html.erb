@@ -7,8 +7,10 @@
 <%= @post_photo.type_name %>
 <%= @post_photo.introduction %>
 
-<% if @post_photo.user_id == current_user.id %>
-  <%= link_to post_photo_path(@post_photo.id), method: :delete, "data-confirm" => "削除しますか？" do %>
-   削除
+<% if user_signed_in? %>
+  <% if @post_photo.user_id == current_user.id %>
+    <%= link_to post_photo_path(@post_photo.id), method: :delete, "data-confirm" => "削除しますか？" do %>
+     削除
+    <% end %>
   <% end %>
 <% end %>
