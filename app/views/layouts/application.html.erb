@@ -6,75 +6,99 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <%= link_to root_path do %>
-        <h2>スマフォトグラフィー</h2>
-      <% end %>
+  <body class="d-flex flex-column vh-100">
+    <header class="bg-dark fixed-top">
+      <nav class="navbar navbar-expand-xl navbar-dark">
+        <div class="container">
+          <%= link_to root_path, class: "navbar-brand p-3 text-light" do %>
+            <h2>スマフォトグラフィー</h2>
+          <% end %>
 
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to about_path do %>
-            About
-          <% end %>
-        </li>
-        <li>
-          <%= link_to post_photos_path do %>
-            投稿一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_post_photo_path do %>
-            投稿
-          <% end %>
-        </li>
-        <li>
-          <%= link_to users_path do %>
-            ユーザー一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to user_path(current_user.id) do %>
-            マイページ
-          <% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-            ログアウト
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to about_path do %>
-            About
-          <% end %>
-        </li>
-        <li>
-          <%= link_to post_photos_path do %>
-            投稿一覧
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_registration_path do %>
-            新規登録
-          <% end %>
-        </li>
-        <li>
-          <%= link_to new_user_session_path do %>
-            ログイン
-          <% end %>
-        </li>
-      <% end %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to about_path, class: "nav-link text-light" do %>
+                    About
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to post_photos_path, class: "nav-link text-light" do %>
+                    投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_post_photo_path, class: "nav-link text-light" do %>
+                    投稿
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path, class: "nav-link text-light" do %>
+                    ユーザー一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
+                    マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+                    ログアウト
+                  <% end %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to about_path, class: "nav-link text-light" do %>
+                    About
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to post_photos_path, class: "nav-link text-light" do %>
+                    投稿一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+                    新規登録
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                    ログイン
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <%= notice %>
-      <%= alert %>
-      <%= yield %>
+      <div class="my-5 py-5 px-4">
+        <%= notice %>
+        <%= alert %>
+        <%= yield %>
+      </div>
     </main>
+
+    <footer class="bg-dark shadow-sm fixed-bottom">
+      <div class="container my-4">
+        <div class="row">
+          <div class="mx-auto text-light">
+            <p>SmaPhotography</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

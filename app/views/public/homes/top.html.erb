@@ -1,19 +1,31 @@
-<h1>Welcome to SmaPhotography!</h1>
+<div class="container my-4">
+  <div class="row">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <div class="card" style="max-width: 600px;">
+        <%= image_tag 'top_bg', class:"card-img", style:"width:100%" %>
+        <div class="card-img-overlay d-flex justify-content-center align-items-center" style="background-color:rgba(0,0,0,0.4)">
+          <h1 class="text-white">Welcome to SmaPhotography!</h1>
+          <p class="text-white">
+            スマフォトグラフィーへようこそ！<br>
+            こちらは、スマホで撮影した写真を<br>
+            投稿・共有できるSNSです。<br>
+          </p>
+          <% if user_signed_in? %>
+          <% else %>
+            投稿するには、ユーザー登録が必要です。<br>
+            <%= link_to new_user_registration_path do %>
+              新規登録
+            <% end %>
+            <%= link_to new_user_session_path do %>
+              ログイン
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-スマフォトグラフィーへようこそ！<br>
-こちらは、スマホで撮影した写真を<br>
-投稿・共有できるSNSです。<br>
-<br>
-<% if user_signed_in? %>
-<% else %>
-  投稿するには、ユーザー登録が必要です。<br>
-  <%= link_to new_user_registration_path do %>
-    新規登録
-  <% end %>
-  <%= link_to new_user_session_path do %>
-    ログイン
-  <% end %>
-<% end %>
 
 <h2>最新の投稿</h2>
 <% @post_photos.each do |post_photo| %>
