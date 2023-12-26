@@ -1,19 +1,38 @@
-<h2>Log in</h2>
-
-<%= form_with model: @user, url: user_session_path do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autocomplete: "name" %>
+<div class="container">
+  <div class="row my-3 pt-3 d-flex justify-content-center">
+    <h4 class="text-center">ログイン</h4>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <%= form_with model: @user, url: user_session_path do |f| %>
+
+      <div class="form-group row d-flex justify-content-center">
+        <div class="col-lg-4 col-form-label"><%= f.label "ユーザー名" %></div>
+        <div class="col-lg-6 mb-3">
+          <%= f.text_field :name, size: 40, placeholder:"太郎", class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group row d-flex justify-content-center">
+        <div class="col-lg-4 col-form-label"><%= f.label "パスワード" %></div>
+        <div class="col-lg-6 mb-3">
+          <%= f.password_field :password, size: 40, autocomplete: "current-password", class:"form-control" %>
+        </div>
+      </div>
+
+      <div class="actions row d-flex justify-content-center">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+<div class="container">
+  <div class="row mt-4 mb-3 d-flex justify-content-center">
+    <div class="col-lg-6 text-center">
+      新規登録は <%= link_to "こちら", new_user_registration_path %> から。
+    </div>
   </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</div>
