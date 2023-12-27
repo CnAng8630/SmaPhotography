@@ -7,7 +7,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @post_photos = @user.post_photos
+    @post_photos = @user.post_photos.page(params[:page]).per(10)
   end
 
   def edit
