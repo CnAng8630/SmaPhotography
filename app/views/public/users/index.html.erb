@@ -1,10 +1,30 @@
-<h2>ユーザー一覧</h2>
+<div class="container">
+  <div class="row my-3 pt-3 d-flex justify-content-center">
+    <h4 class="text-center">ユーザー一覧</h4>
+  </div>
+</div>
 
-<% @users.each do |user| %>
-  <%= link_to user_path(user.id) do %>
-    <%= image_tag user.get_profile_image(200,200) %>
-    <h3><%= user.name %></h3>
-  <% end %>
-<% end %>
+<div class="container mt-3">
+  <div class="row d-flex flex-column">
+    <% @users.each do |user| %>
+      <%= link_to user_path(user.id) do %>
+        <div class="d-flex mb-4 flex-row justify-content-center">
+          <div class="col-lg-2">
+            <%= image_tag user.get_profile_image(100,100) %>
+          </div>
+          <div class="col-lg-2 text-body d-flex align-items-center justify-content-center">
+            <h5><%= user.name %></h5>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<%= paginate @users %>
+<div class="container my-2">
+  <div class="row">
+    <div class="col-lg-12 mx-auto d-flex justify-content-center">
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>

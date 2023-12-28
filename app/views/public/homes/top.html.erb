@@ -46,7 +46,7 @@
     <% @post_photos.each do |post_photo| %>
       <div class="col-lg-3">
         <%= link_to post_photo_path(post_photo.id) do %>
-          <%= image_tag post_photo.get_photo_image(500,500), style:"width:200px; height:200px; object-fit:cover;" %>
+          <%= image_tag post_photo.get_photo_image(500,500), class: "mb-3", style:"width:200px; height:200px; object-fit:cover;" %>
           <p class="text-body text-center"><%= post_photo.user.name %></p>
           <p class="text-body text-center"><%= post_photo.type_name %></p>
         <% end %>

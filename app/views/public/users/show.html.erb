@@ -1,17 +1,48 @@
-<%= image_tag @user.get_profile_image(200,200) %>
-<h3><%= @user.name %></h3>
-<%= @user.introduction %>
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-2 mx-4">
+      <%= image_tag @user.get_profile_image(150,150) %>
+    </div>
 
-<% if @user == current_user %>
-  <%= link_to edit_user_path do %>
-   編集
-  <% end %>
-<% end %>
+    <div class="col-lg-5 ml-3">
+      <h5><strong><%= @user.name %></strong></h5>
+      <p><%= @user.introduction %></p>
+    </div>
+  </div>
+</div>
 
-<% @post_photos.each do |post_photo| %>
-  <%= link_to post_photo_path(post_photo.id) do %>
-    <%= image_tag post_photo.get_photo_image(200,200) %>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row my-3 d-flex justify-content-center">
+    <% if @user == current_user %>
+      <%= link_to edit_user_path, class: "btn btn-success", style: "width:100px" do %>
+        編集
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<%= paginate @post_photos %>
+<div class="container">
+  <div class="row my-3 pt-3 d-flex justify-content-center">
+    <h5 class="text-center">投稿一覧</h5>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row d-flex justify-content-center">
+    <% @post_photos.each do |post_photo| %>
+      <div class="col-lg-2 mx-1 mb-4">
+        <%= link_to post_photo_path(post_photo.id) do %>
+          <%= image_tag post_photo.get_photo_image(300,300), style:"width:120px; height:120px; object-fit:cover;" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container my-2">
+  <div class="row">
+    <div class="col-lg-12 mx-auto d-flex justify-content-center">
+      <%= paginate @post_photos %>
+    </div>
+  </div>
+</div>
