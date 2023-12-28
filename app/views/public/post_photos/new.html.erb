@@ -18,18 +18,18 @@
       <div class="form-group row d-flex justify-content-center">
         <div class="col-lg-4 col-form-label"><%= f.label "機種名" %></div>
         <div class="col-lg-6 mb-2">
-          <%= f.text_field :type_name, placeholder:"iPhone14", class:"form-control" %>
+          <%= f.text_field :type_name, size: 40, placeholder:"iPhone14", class:"form-control" %>
         </div>
       </div>
 
       <div class="form-group row d-flex justify-content-center">
         <div class="col-lg-4 col-form-label"><%= f.label "写真について" %></div>
         <div class="col-lg-6 mb-2">
-          <%= f.text_area :introduction, placeholder:"写真についての説明を記入してください。", class:"form-control" %>
+          <%= f.text_area :introduction, size: 40, placeholder:"写真についての説明を記入してください。", class:"form-control" %>
         </div>
       </div>
 
-      <div class="actions row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center">
         <%= f.submit "投稿", class: "btn btn-success", style: "width:100px" %>
       </div>
     <% end %>
