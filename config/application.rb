@@ -22,5 +22,6 @@ module SmaPhotography
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.assets.enabled = true
+    config.assets.precompile += %w(top_bg.jpg)
   end
 end
